@@ -184,6 +184,24 @@ the distilled answer. The brief you prepared should already contain what it need
 pays off on substantial, multi-step work (migrations, audits, big features,
 large batches).
 
+## Transparency & safety
+
+Be an informed user before running any agent tooling:
+
+- **Network calls.** The default worker bridge (`glm-bridge.sh`) sends your
+  task and code context to a **non-Anthropic** model provider — GLM via
+  [opencode](https://opencode.ai) — and the premium phase calls your Claude
+  provider. No other network calls, no telemetry, no analytics.
+- **Permission bypass.** `glm-bridge.sh` runs the worker with
+  `--dangerously-skip-permissions` so headless runs don't block on approval
+  prompts. That means the worker can edit files without asking. Run it inside a
+  git repo (the workflow assumes this), review every diff, and prefer a
+  dedicated branch/worktree.
+- **No secrets in the skill.** Provider keys live in your own environment/CLI,
+  never in these files. Keep them out of briefs, stories, and logs.
+- **Every shell script is commented** to explain exactly what it does — read
+  them before running.
+
 ## Contributing
 
 Issues and PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). If fable-relay
