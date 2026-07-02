@@ -1,0 +1,16 @@
+# fable-relay produces per-task working dirs when run inside a project.
+# Never commit them from a consumer repo — but ignore them here too if you
+# experiment inside a clone.
+.fable/
+*.reply.md
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local env / secrets — never commit these
+.env
+.env.local
+*.key
